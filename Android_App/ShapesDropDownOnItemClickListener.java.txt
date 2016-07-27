@@ -1,0 +1,39 @@
+package com.example.oscar.csc306courseworkapplication;
+
+
+import android.content.Context;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+
+public class ShapesDropDownOnItemClickListener implements AdapterView.OnItemClickListener {
+
+
+
+
+    @Override
+    public void onItemClick(AdapterView<?> arg0, View v, int arg2, long arg3){
+        Context mContext = v.getContext();
+        ShapesActivity shapesActivity = ((ShapesActivity) mContext);
+
+        shapesActivity.popupWindowShapes.dismiss();
+        String selectedItemText = ((TextView) v).getText().toString();
+        shapesActivity.buttonShowDropDown.setText(selectedItemText);
+
+        String selectedItemTag = ((TextView) v).getTag().toString();
+        Toast.makeText(mContext, "Shape is: " + selectedItemTag, Toast.LENGTH_SHORT).show();
+
+        shapesActivity.setShapeType(selectedItemTag);
+
+
+
+
+    }
+
+
+
+
+}
